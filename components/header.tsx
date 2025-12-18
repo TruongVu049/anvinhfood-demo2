@@ -1,65 +1,130 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { Search, ShoppingCart, MapPin, Home, User } from "lucide-react"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import {
+  Search,
+  ShoppingCart,
+  MapPin,
+  Home,
+  User,
+  Menu,
+  X,
+} from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
-const navLinks = ["điện gia dụng", "xe cộ", "mẹ & bé", "khỏe đẹp", "nhà cửa", "sách", "thể thao"]
+const navLinks = [
+  "thực phẩm tươi",
+  "cá, hải sản",
+  "thịt, trứng",
+  "rau củ",
+  "đồ khô",
+  "đồ ăn vặt",
+  "combo",
+];
 
 const commitments = [
-  { icon: "/checkmark-blue-icon.jpg", text: "100% hàng thật" },
+  {
+    icon: "/checkmark-blue-icon.jpg",
+    text: "Đảm bảo vệ sinh an toàn thực phẩm",
+  },
   { icon: "/truck-delivery-icon.jpg", text: "Freeship mọi đơn" },
-  { icon: "/money-back-guarantee-icon.png", text: "Hoàn 200% nếu hàng giả" },
-  { icon: "/return-exchange-icon.jpg", text: "30 ngày đổi trả" },
   { icon: "/fast-delivery-rocket-icon.jpg", text: "Giao nhanh 2h" },
   { icon: "/price-tag-discount-icon.jpg", text: "Giá siêu rẻ" },
-]
+];
 
 export function Header() {
-  const [cartCount] = useState(0)
+  const [cartCount] = useState(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const router = useRouter();
+
+  const handleSearch = () => {
+    if (searchQuery.trim()) {
+      router.push(
+        `/category/search?q=${encodeURIComponent(searchQuery.trim())}`
+      );
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
 
   return (
-    <header className="sticky top-0 z-50 bg-white">
+    <header className="z-50 bg-gradient-to-r from-[#1ba8ff] to-[#0b74e5] text-white">
       {/* Top banner - Updated to match Tiki's pink/red gradient banner */}
-      <div className="bg-gradient-to-r from-[#ff424e] to-[#ff424e] text-white text-center py-2 text-sm">
-        Freeship đơn từ 45k, giảm nhiều hơn cùng{" "}
-        <span className="font-bold text-yellow-300 underline cursor-pointer">FREESHIP XTRA</span>
+      <div className="hidden md:block  text-center py-2 text-sm">
+        Freeship đơn từ 0đ - Thực phẩm tươi ngon giao nhanh 2h, giảm nhiều hơn
+        cùng{" "}
+        <span className="font-bold text-yellow-300 underline cursor-pointer">
+          FREESHIP XTRA
+        </span>
       </div>
 
       {/* Main header */}
-      <div className="bg-white border-b">
+      <div className="bg-gradient-to-r from-[#1ba8ff] to-[#0b74e5] border-b shadow-sm">
         <div className="max-w-[1240px] mx-auto px-4 py-3">
-          <div className="flex items-center gap-6">
+          <div className="flex items-start justify-between  gap-2 md:gap-6">
+            {/* Mobile menu button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2 -ml-2"
+            >
+              {mobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
+
             <Link href="/" className="flex-shrink-0">
-              <div className="flex flex-col items-start">
-                <span className="text-[32px] font-black text-[#0b74e5] tracking-tight leading-none">TIKI</span>
-                <span className="text-xs text-[#f7941e] font-semibold">Tốt & Nhanh</span>
+              <div className="flex items-center gap-2">
+                <Image
+                  src="/logo.png"
+                  alt="Frozen Food Logo"
+                  width={48}
+                  height={48}
+                  className="w-44 h-auto object-contain"
+                />
               </div>
             </Link>
 
             {/* Search - Updated styling to match Tiki */}
-            <div className="flex-1 max-w-[680px]">
-              <div className="relative flex items-center border border-gray-200 rounded-lg overflow-hidden">
-                <div className="flex items-center pl-3">
-                  <Search className="h-5 w-5 text-gray-400" />
+            <div className="flex-1 max-w-[680px] text-white">
+              <div className="relative flex items-center border-2 border-[#0b74e5] rounded-lg overflow-hidden bg-white hover:shadow-md transition-shadow">
+                <div className="flex items-center pl-2 md:pl-3">
+                  <Search className="h-4 w-4 md:h-5 md:w-5 text-gray-500" />
                 </div>
-                <Input placeholder="Freeship đơn từ 45k" className="border-0 focus-visible:ring-0 h-10 pl-2" />
-                <div className="h-6 w-px bg-gray-200 mx-2"></div>
+                <Input
+                  placeholder="Tìm thực phẩm..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                  className="border-0 focus-visible:ring-0 h-9 md:h-10 pl-2 text-sm text-gray-900 placeholder:text-gray-500"
+                />
                 <Button
                   variant="ghost"
-                  className="h-10 px-4 text-[#0b74e5] font-medium hover:bg-transparent hover:text-[#0b74e5]"
+                  onClick={handleSearch}
+                  className="hidden md:flex h-10 px-4 text-white bg-[#0b74e5] font-medium hover:text-white cursor-pointer hover:bg-[#0a68ce] rounded-none"
                 >
                   Tìm kiếm
                 </Button>
               </div>
 
-              {/* Nav links */}
-              <div className="flex items-center gap-4 mt-2 text-sm text-gray-500">
+              {/* Nav links - hidden on mobile */}
+              <div className="hidden lg:flex items-center gap-4 mt-2 text-sm text-white">
                 {navLinks.map((link) => (
-                  <Link key={link} href="#" className="hover:text-[#0b74e5] transition-colors">
+                  <Link
+                    key={link}
+                    href="#"
+                    className="hover:text-yellow-300 transition-colors capitalize"
+                  >
                     {link}
                   </Link>
                 ))}
@@ -67,20 +132,19 @@ export function Header() {
             </div>
 
             {/* Right actions - Updated to match Tiki style */}
-            <div className="flex items-center gap-6">
-              <Link href="/" className="flex items-center gap-2 text-gray-700 hover:text-[#0b74e5] transition-colors">
-                <Home className="h-5 w-5" />
-                <span className="text-sm">Trang chủ</span>
-              </Link>
-              <Link href="#" className="flex items-center gap-2 text-gray-700 hover:text-[#0b74e5] transition-colors">
-                <User className="h-5 w-5" />
-                <span className="text-sm">Tài khoản</span>
+            <div className="flex items-center gap-3 md:gap-6">
+              <Link
+                href="#"
+                className="flex items-center gap-2 text-white hover:text-yellow-300 transition-colors"
+              >
+                <User className="h-4 w-4 md:h-5 md:w-5" />
+                <span className="hidden md:inline text-sm">Tài khoản</span>
               </Link>
               <Link
                 href="#"
-                className="relative flex items-center text-gray-700 hover:text-[#0b74e5] transition-colors"
+                className="relative flex items-center text-white hover:text-yellow-300 transition-colors"
               >
-                <ShoppingCart className="h-6 w-6" />
+                <ShoppingCart className="h-5 w-5 md:h-6 md:w-6" />
                 <span className="absolute -top-2 -right-2 bg-[#ff424e] text-white text-xs min-w-[18px] h-[18px] rounded-full flex items-center justify-center font-medium">
                   {cartCount}
                 </span>
@@ -91,32 +155,52 @@ export function Header() {
       </div>
 
       {/* Commitments bar - Updated to match Tiki style */}
-      <div className="bg-white border-b">
+      <div className="bg-white border-b overflow-x-auto">
         <div className="max-w-[1240px] mx-auto px-4 py-2">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between min-w-max md:min-w-0">
             <div className="flex items-center gap-1">
-              <span className="text-gray-700 font-medium text-sm mr-2">Cam kết</span>
+              <span className="hidden md:inline text-gray-700 font-medium text-sm mr-2">
+                Cam kết
+              </span>
               {commitments.map((item, idx) => (
-                <div key={idx} className="flex items-center gap-1.5 px-2 py-1 text-gray-600">
+                <div
+                  key={idx}
+                  className="flex items-center gap-1.5 px-2 py-1 text-gray-600"
+                >
                   <Image
                     src={item.icon || "/placeholder.svg"}
                     alt=""
                     width={16}
                     height={16}
-                    className="object-contain"
+                    className="object-contain flex-shrink-0"
                   />
-                  <span className="text-sm">{item.text}</span>
+                  <span className="text-xs md:text-sm whitespace-nowrap">
+                    {item.text}
+                  </span>
                 </div>
               ))}
-            </div>
-            <div className="flex items-center gap-1 text-sm text-gray-600">
-              <MapPin className="h-4 w-4 text-gray-500" />
-              <span>Giao đến:</span>
-              <span className="text-gray-900 font-medium underline cursor-pointer">Q. 1, P. Bến Nghé, Hồ Chí Minh</span>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Mobile menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-white border-b shadow-lg">
+          <nav className="px-4 py-2">
+            {navLinks.map((link) => (
+              <Link
+                key={link}
+                href="#"
+                className="block py-3 text-sm text-gray-700 hover:text-[#0b74e5] border-b capitalize"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {link}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      )}
     </header>
-  )
+  );
 }

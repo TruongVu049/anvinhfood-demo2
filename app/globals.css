@@ -119,6 +119,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -141,4 +142,96 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #a1a1a1;
+}
+
+/* Food theme custom styles */
+.food-card-hover {
+  transition: all 0.3s ease;
+}
+
+.food-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.fresh-badge {
+  background: linear-gradient(135deg, #00ab56 0%, #00d68f 100%);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.frozen-badge {
+  background: linear-gradient(135deg, #1ba8ff 0%, #0b74e5 100%);
+}
+
+.premium-badge {
+  background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%);
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Smooth transitions */
+.smooth-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Image hover effect */
+.image-hover-zoom {
+  overflow: hidden;
+}
+
+.image-hover-zoom img {
+  transition: transform 0.5s ease;
+}
+
+.image-hover-zoom:hover img {
+  transform: scale(1.1);
+}
+
+/* Price animation */
+@keyframes price-highlight {
+
+  0%,
+  100% {
+    background-color: transparent;
+  }
+
+  50% {
+    background-color: rgba(255, 193, 7, 0.2);
+  }
+}
+
+.price-highlight {
+  animation: price-highlight 1.5s ease-in-out;
+}
+
+/* Scrollbar hide utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Mobile responsive utilities */
+@media (max-width: 768px) {
+  .mobile-padding {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .mobile-text-sm {
+    font-size: 0.875rem;
+  }
 }

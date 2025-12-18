@@ -1,40 +1,61 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { ChevronDown, ChevronUp } from "lucide-react"
-import { subCategories } from "@/lib/data"
+import { useState } from "react";
+import { ChevronDown, ChevronUp } from "lucide-react";
+import { subCategories } from "@/lib/data";
 
 interface CategoryFilterProps {
-  categorySlug: string
+  categorySlug: string;
 }
 
-const brands = ["SeaFood Premium", "Premium Meat", "Nordic Seafood", "Ocean Fresh", "Aussie Meat", "FreshMart"]
+const brands = [
+  "SeaFood Premium",
+  "Premium Meat",
+  "Nordic Seafood",
+  "Ocean Fresh",
+  "Aussie Meat",
+  "FreshMart",
+];
 
 const priceRanges = [
   { label: "Dưới 200.000đ", min: 0, max: 200000 },
   { label: "200.000đ - 500.000đ", min: 200000, max: 500000 },
   { label: "500.000đ - 1.000.000đ", min: 500000, max: 1000000 },
   { label: "Trên 1.000.000đ", min: 1000000, max: null },
-]
+];
 
 export function CategoryFilter({ categorySlug }: CategoryFilterProps) {
-  const [expandedSections, setExpandedSections] = useState<string[]>(["subcategory", "brand", "price"])
-  const [selectedBrands, setSelectedBrands] = useState<string[]>([])
-  const [selectedPriceRange, setSelectedPriceRange] = useState<string | null>(null)
+  const [expandedSections, setExpandedSections] = useState<string[]>([
+    "subcategory",
+    "brand",
+    "price",
+  ]);
+  const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
+  const [selectedPriceRange, setSelectedPriceRange] = useState<string | null>(
+    null
+  );
 
   const toggleSection = (section: string) => {
-    setExpandedSections((prev) => (prev.includes(section) ? prev.filter((s) => s !== section) : [...prev, section]))
-  }
+    setExpandedSections((prev) =>
+      prev.includes(section)
+        ? prev.filter((s) => s !== section)
+        : [...prev, section]
+    );
+  };
 
   const toggleBrand = (brand: string) => {
-    setSelectedBrands((prev) => (prev.includes(brand) ? prev.filter((b) => b !== brand) : [...prev, brand]))
-  }
+    setSelectedBrands((prev) =>
+      prev.includes(brand) ? prev.filter((b) => b !== brand) : [...prev, brand]
+    );
+  };
 
-  const currentSubCategories = subCategories[categorySlug] || []
+  const currentSubCategories = subCategories[categorySlug] || [];
 
   return (
-    <aside className="w-[220px] bg-white rounded-lg p-4 h-fit sticky top-36 space-y-4">
-      <h3 className="font-semibold text-gray-900">Khám phá theo danh mục</h3>
+    <aside className="w-[200px] lg:w-[220px] bg-white rounded-lg p-3 lg:p-4 h-fit sticky top-24 lg:top-36 space-y-3 lg:space-y-4">
+      <h3 className="font-semibold text-gray-900 text-sm lg:text-base">
+        Khám phá theo danh mục
+      </h3>
 
       {/* Subcategories */}
       <div className="border-b pb-4">
@@ -63,34 +84,6 @@ export function CategoryFilter({ categorySlug }: CategoryFilterProps) {
         )}
       </div>
 
-      {/* Brands */}
-      <div className="border-b pb-4">
-        <button
-          onClick={() => toggleSection("brand")}
-          className="flex items-center justify-between w-full text-left font-medium text-gray-900 mb-2"
-        >
-          <span>Thương hiệu</span>
-          {expandedSections.includes("brand") ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
-        </button>
-        {expandedSections.includes("brand") && (
-          <ul className="space-y-2">
-            {brands.map((brand) => (
-              <li key={brand}>
-                <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 hover:text-blue-600">
-                  <input
-                    type="checkbox"
-                    className="rounded text-blue-600"
-                    checked={selectedBrands.includes(brand)}
-                    onChange={() => toggleBrand(brand)}
-                  />
-                  {brand}
-                </label>
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-
       {/* Price range */}
       <div className="border-b pb-4">
         <button
@@ -98,7 +91,11 @@ export function CategoryFilter({ categorySlug }: CategoryFilterProps) {
           className="flex items-center justify-between w-full text-left font-medium text-gray-900 mb-2"
         >
           <span>Khoảng giá</span>
-          {expandedSections.includes("price") ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+          {expandedSections.includes("price") ? (
+            <ChevronUp className="h-4 w-4" />
+          ) : (
+            <ChevronDown className="h-4 w-4" />
+          )}
         </button>
         {expandedSections.includes("price") && (
           <ul className="space-y-2">
@@ -159,5 +156,5 @@ export function CategoryFilter({ categorySlug }: CategoryFilterProps) {
         )}
       </div>
     </aside>
-  )
+  );
 }
