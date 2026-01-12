@@ -1,12 +1,12 @@
-# AnVinhFood Demo 2
+# MeU Building Materials - E-commerce Platform
 
-Trang web bán vật liệu xây dựng
+Nền tảng thương mại điện tử chuyên cung cấp vật liệu xây dựng chất lượng cao
 
 ## 🚀 Deployment
 
-[![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://anvinhfood-demo2-two.vercel.app)
+[![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://meubuildingmaterials.vercel.app)
 
-**Live URL:** https://anvinhfood-demo2-two.vercel.app
+**Live URL:** https://meubuildingmaterials.vercel.app
 
 ## 🛠️ Tech Stack
 

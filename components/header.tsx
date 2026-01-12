@@ -100,7 +100,7 @@ export function Header() {
               <div className="flex items-center gap-2 hover:opacity-90 transition-opacity">
                 <div className={`bg-white rounded-lg shadow-sm transition-all duration-300 ${isScrolled ? 'p-1' : 'p-1.5'}`}>
                   <Image
-                    src="/logo-MeU.png"
+                    src="/Logo-MeU.png"
                     alt="MeU Building Materials Logo"
                     width={32}
                     height={32}
