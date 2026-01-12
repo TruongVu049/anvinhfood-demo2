@@ -7,7 +7,7 @@ import "./globals.css";
 const _inter = Inter({ subsets: ["latin", "vietnamese"] });
 
 export const metadata: Metadata = {
-  title: "Cửa Hàng Vật Liệu Xây Dựng An Vĩnh",
+  title: "Cửa Hàng Vật Liệu Xây Dựng MeU - Building Materials",
   description:
     "Chuyên cung cấp vật liệu xây dựng chất lượng cao: Xi măng, gạch, ngói, sơn, thiết bị điện, công cụ xây dựng. Giá tốt nhất thị trường, giao hàng nhanh.",
   generator: "v0.app",
