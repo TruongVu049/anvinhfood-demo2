@@ -7,15 +7,15 @@ import "./globals.css";
 const _inter = Inter({ subsets: ["latin", "vietnamese"] });
 
 export const metadata: Metadata = {
-  title: "Cửa Hàng Vật Liệu Xây Dựng MeU - Building Materials",
+  title: " MeU - Building Materials",
   description:
     "Chuyên cung cấp vật liệu xây dựng chất lượng cao: Xi măng, gạch, ngói, sơn, thiết bị điện, công cụ xây dựng. Giá tốt nhất thị trường, giao hàng nhanh.",
   generator: "v0.app",
   icons: {
     icon: [
-      { url: "/logo-MeU.png" },
-      { url: "/logo-MeU.png", sizes: "16x16", type: "image/png" },
-      { url: "/logo-MeU.png", sizes: "32x32", type: "image/png" },
+      { url: "/Logo-MeU.png" },
+      { url: "/Logo-MeU.png", sizes: "16x16", type: "image/png" },
+      { url: "/Logo-MeU.png", sizes: "32x32", type: "image/png" },
     ],
     apple: [{ url: "/apple-icon.png" }],
     other: [
