@@ -1,0 +1,9 @@
+{
+  "projectSettings": {
+    "name": "meu-building-materials"
+  },
+  "buildCommand": "next build",
+  "devCommand": "next dev",
+  "installCommand": "npm install",
+  "framework": "nextjs"
+}
