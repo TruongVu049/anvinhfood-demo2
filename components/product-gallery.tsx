@@ -26,12 +26,11 @@ export function ProductGallery({
       <div className="flex items-center gap-2 px-1 md:px-2">
         <div className="flex items-center gap-1">
           <span className="text-[#ff424e] font-bold text-[10px] md:text-xs">
-            HẢI SẢN TƯƠI
+            VẬT LIỆU XÂY DỰNG
           </span>
         </div>
       </div>
 
-      {/* Main image */}
       <div className="relative aspect-square bg-white rounded-lg overflow-hidden border">
         <Image
           src={images[selectedImage] || "/placeholder.svg"}
@@ -41,7 +40,6 @@ export function ProductGallery({
         />
       </div>
 
-      {/* Thumbnails with scroll */}
       <div className="relative">
         <div
           className="flex gap-2 overflow-x-auto pb-1"
@@ -67,7 +65,6 @@ export function ProductGallery({
           ))}
         </div>
 
-        {/* Scroll arrow */}
         {images.length > 5 && (
           <button
             onClick={nextImage}

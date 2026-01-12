@@ -26,8 +26,8 @@ const filterTabs = [
   "3 sao",
   "2 sao",
   "1 sao",
-  "Nhỏ gọn",
-  "Chất liệu bền",
+  "Chất lượng tốt",
+  "Giá hợp lý",
 ];
 
 const ratingDistribution = [
@@ -133,25 +133,25 @@ export function CustomerReviews({
                 <li className="flex items-start gap-2">
                   <span className="text-[#00ab56] font-bold">+</span>
                   <span className="text-gray-700">
-                    Đun nước nhanh, thiết kế đẹp, chắc chắn.
+                    Chất lượng tốt, bê tông chắc, đông kết nhanh.
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-[#00ab56] font-bold">+</span>
                   <span className="text-gray-700">
-                    Chất liệu an toàn, dễ vệ sinh, không có mùi.
+                    Sản phẩm chính hãng, có tem chống giả.
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-[#00ab56] font-bold">+</span>
                   <span className="text-gray-700">
-                    Sản phẩm chính hãng, có phiếu bảo hành.
+                    Giá cả hợp lý so với thị trường.
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-[#ff424e] font-bold">−</span>
                   <span className="text-gray-700">
-                    Nắp bình khó mở, nhựa trên nắp không bền.
+                    Một vài bê bị rách bao bì khi vận chuyển.
                   </span>
                 </li>
               </ul>
@@ -174,19 +174,19 @@ export function CustomerReviews({
                 <li className="flex items-start gap-2">
                   <span className="text-[#00ab56] font-bold">+</span>
                   <span className="text-gray-700">
-                    Nhân viên giao hàng thân thiện, hỗ trợ tốt.
+                    Nhân viên tư vấn nhiệt tình, hỗ trợ tốt.
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-[#00ab56] font-bold">+</span>
                   <span className="text-gray-700">
-                    Giá cả hợp lý, nhiều khuyến mãi.
+                    Giá cả tốt, có nhiều khuyến mãi.
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-[#ff424e] font-bold">−</span>
                   <span className="text-gray-700">
-                    Một số trường hợp giao hàng trễ, thiếu quà tặng.
+                    Một số trường hợp giao hàng muộn.
                   </span>
                 </li>
               </ul>
@@ -208,27 +208,27 @@ export function CustomerReviews({
       <div className="flex items-start gap-8 mb-6 pb-6 border-b">
         <div>
           <div className="text-sm text-gray-600 mb-3">
-            Mọi người nghĩ gì về sản phẩm này?
+            What people think about this?
           </div>
           <div className="flex gap-6">
             <div className="text-center">
               <div className="w-16 h-16 rounded-full border-4 border-[#0b74e5] flex items-center justify-center">
                 <span className="text-lg font-bold text-[#0b74e5]">99%</span>
               </div>
-              <div className="text-xs text-gray-600 mt-1.5">Nhỏ gọn</div>
+              <div className="text-xs text-gray-600 mt-1.5">Building</div>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 rounded-full border-4 border-[#00ab56] flex items-center justify-center">
                 <span className="text-lg font-bold text-[#00ab56]">98%</span>
               </div>
-              <div className="text-xs text-gray-600 mt-1.5">Chất liệu bền</div>
+              <div className="text-xs text-gray-600 mt-1.5">Coming Soon</div>
             </div>
           </div>
         </div>
 
         <div className="flex-1">
           <div className="text-sm text-gray-600 mb-3">
-            Tất cả hình ảnh (345)
+            Building Images (345)
           </div>
           <div
             className="flex gap-2 overflow-x-auto"
@@ -240,7 +240,7 @@ export function CustomerReviews({
                 className="w-16 h-16 bg-gray-200 rounded flex-shrink-0 overflow-hidden relative"
               >
                 <Image
-                  src={`/live-lobster-on-ice.jpg`}
+                  src={`/led${i + 1}.webp`}
                   alt={`Review image ${i + 1}`}
                   fill
                   className="object-cover"
@@ -256,7 +256,7 @@ export function CustomerReviews({
 
       {/* Filter tabs - Updated styling */}
       <div className="flex flex-wrap gap-2 mb-6 items-center">
-        <span className="text-sm text-gray-500 mr-2">Lọc theo</span>
+        <span className="text-sm text-gray-500 mr-2">Filter by</span>
         {filterTabs.map((tab) => (
           <button
             key={tab}
@@ -288,21 +288,21 @@ export function CustomerReviews({
                       {review.userName}
                     </div>
                     <div className="text-xs text-gray-500">
-                      Đã tham gia {review.memberYears} năm
+                      Joined {review.memberYears} years
                     </div>
                   </div>
                 </div>
                 <div className="text-xs text-gray-500 space-y-1.5 mt-3">
                   <div className="flex items-center gap-2">
-                    <span>📝 Đã viết</span>
+                    <span>📝 Written</span>
                     <span className="font-medium">
-                      {review.reviewCount} Đánh giá
+                      {review.reviewCount} Reviews
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span>👍 Đã nhận</span>
+                    <span>👍 Received</span>
                     <span className="font-medium">
-                      {review.helpfulCount} Lượt cảm ơn
+                      {review.helpfulCount} Thanks
                     </span>
                   </div>
                 </div>
@@ -329,7 +329,7 @@ export function CustomerReviews({
                 {review.isPurchased && (
                   <div className="flex items-center gap-1 text-[#00ab56] text-sm mb-2">
                     <Check className="h-4 w-4" />
-                    <span>Đã mua hàng</span>
+                    <span>Verified</span>
                   </div>
                 )}
 
@@ -356,10 +356,10 @@ export function CustomerReviews({
                 )}
 
                 <div className="flex items-center gap-2 text-xs text-gray-500 flex-wrap">
-                  <span>Màu: {review.variant}</span>
+                  <span>Version: {review.variant}</span>
                 </div>
                 <div className="text-xs text-gray-500 mt-1">
-                  Đánh giá vào {review.date} · Đã dùng {review.usageDays} ngày
+                  Reviewed on {review.date} · Used {review.usageDays} days
                 </div>
 
                 <div className="flex items-center gap-4 mt-3">
@@ -373,7 +373,7 @@ export function CustomerReviews({
                   </button>
                   <button className="flex items-center gap-1 text-gray-500 hover:text-[#0b74e5] ml-auto">
                     <Share2 className="h-4 w-4" />
-                    <span className="text-sm">Chia sẻ</span>
+                    <span className="text-sm">Share</span>
                   </button>
                 </div>
               </div>

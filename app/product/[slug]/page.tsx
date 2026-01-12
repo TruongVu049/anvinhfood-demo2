@@ -10,6 +10,7 @@ import { CustomerReviews } from "@/components/customer-reviews";
 import { WarrantyInfo } from "@/components/warranty-info";
 import { products, categories } from "@/lib/data";
 import { notFound } from "next/navigation";
+import { PageTransition } from "@/components/page-transition";
 
 interface ProductPageProps {
   params: Promise<{ slug: string }>;
@@ -31,17 +32,18 @@ export default async function ProductPage({ params }: ProductPageProps) {
     <div className="min-h-screen bg-[#f5f5fa]">
       <Header />
 
-      <main className="max-w-[1240px] mx-auto px-2 md:px-4 py-2 md:py-4">
-        <Breadcrumb
-          items={[
-            { label: "Trang chủ", href: "/" },
-            {
-              label: category?.name || "Danh mục",
-              href: `/category/${product.category}`,
-            },
-            { label: product.name, href: `/product/${slug}` },
-          ]}
-        />
+      <PageTransition>
+        <main className="max-w-[1240px] mx-auto px-2 md:px-4 py-2 md:py-4">
+          <Breadcrumb
+            items={[
+              { label: "Trang chủ", href: "/" },
+              {
+                label: category?.name || "Danh mục",
+                href: `/category/${product.category}`,
+              },
+              { label: product.name, href: `/product/${slug}` },
+            ]}
+          />
 
         {/* Main product section - Updated layout */}
         <div className="flex flex-col lg:grid lg:grid-cols-12 gap-2 md:gap-4 mt-2 md:mt-4">
@@ -120,7 +122,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
             reviewCount={product.reviewCount}
           />
         </div>
-      </main>
+        </main>
+      </PageTransition>
 
       <Footer />
 

@@ -45,7 +45,7 @@ export function BuyBox({ product }: BuyBoxProps) {
             className="object-contain"
           />
         </div>
-        <span className="text-sm font-medium text-[#27272a]">Đen</span>
+        <span className="text-sm font-medium text-[#27272a]">Màu Trắng</span>
       </div>
 
       {/* Quantity - Updated quantity selector */}
@@ -91,11 +91,11 @@ export function BuyBox({ product }: BuyBoxProps) {
 
       {/* Promo banner - Updated promo banner */}
       <div className="bg-gradient-to-r from-[#1a2b49] to-[#2d3a5c] rounded-lg p-4 text-white overflow-hidden relative">
-        <p className="text-sm font-bold text-white">Giáng sinh rộn ràng</p>
+        <p className="text-sm font-bold text-white">Khuyến mãi tháng 1</p>
         <p className="text-yellow-400 font-bold">Vô vàn deal hot</p>
         <div className="flex gap-1 mt-2">
           <span className="bg-[#ff424e] text-[10px] px-2 py-0.5 rounded">
-            Giảm đến 50%
+            Giảm đến 30%
           </span>
           <span className="bg-[#ff424e] text-[10px] px-2 py-0.5 rounded">
             Coupon 300K

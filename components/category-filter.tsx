@@ -54,7 +54,7 @@ export function CategoryFilter({ categorySlug }: CategoryFilterProps) {
   return (
     <aside className="w-[200px] lg:w-[220px] bg-white rounded-lg p-3 lg:p-4 h-fit sticky top-24 lg:top-36 space-y-3 lg:space-y-4">
       <h3 className="font-semibold text-gray-900 text-sm lg:text-base">
-        Khám phá theo danh mục
+        Lọc sản phẩm
       </h3>
 
       {/* Subcategories */}

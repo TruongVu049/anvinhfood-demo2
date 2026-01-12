@@ -22,7 +22,7 @@ export function InternationalProducts() {
         <div className="flex items-center gap-2">
           <span className="text-2xl">🔥</span>
           <h2 className="text-sm md:text-base font-bold text-[#27272a]">
-            CÀNG MUA - CÀNG RẺ - AN TOÀN VỆ SINH THỰC PHẨM
+            VẬT LIỆU NHẬP KHẨU - CHẤT LƯỢNG CAO
           </h2>
         </div>
         <Link

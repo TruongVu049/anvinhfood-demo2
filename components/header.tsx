@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -17,30 +17,44 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
-  "thực phẩm tươi",
-  "cá, hải sản",
-  "thịt, trứng",
-  "rau củ",
-  "đồ khô",
-  "đồ ăn vặt",
-  "combo",
+  { label: "xi măng & vữa", slug: "xi-mang-vua" },
+  { label: "gạch xây", slug: "gach-xay-op-lat" },
+  { label: "sơn nhà", slug: "son-chong-tham" },
+  { label: "thép xây dựng", slug: "thep-xay-dung" },
+  { label: "ống nước", slug: "ong-nuoc-phu-kien" },
+  { label: "thiết bị điện", slug: "dien-den-chieu-sang" },
+  { label: "công cụ xd", slug: "cong-cu-xay-dung" },
 ];
 
 const commitments = [
   {
     icon: "/checkmark-blue-icon.jpg",
-    text: "Đảm bảo vệ sinh an toàn thực phẩm",
+    text: "Vật liệu chính hãng 100%",
   },
-  { icon: "/truck-delivery-icon.jpg", text: "Freeship mọi đơn" },
-  { icon: "/fast-delivery-rocket-icon.jpg", text: "Giao nhanh 2h" },
-  { icon: "/price-tag-discount-icon.jpg", text: "Giá siêu rẻ" },
+  { icon: "/truck-delivery-icon.jpg", text: "Freeship đơn từ 500K" },
+  { icon: "/fast-delivery-rocket-icon.jpg", text: "Giao nhanh trong ngày" },
+  { icon: "/price-tag-discount-icon.jpg", text: "Giá tốt nhất thị trường" },
 ];
 
 export function Header() {
   const [cartCount] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [isScrolled, setIsScrolled] = useState(false);
   const router = useRouter();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleSearch = () => {
     if (searchQuery.trim()) {
@@ -57,19 +71,18 @@ export function Header() {
   };
 
   return (
-    <header className="z-50 bg-gradient-to-r from-[#1ba8ff] to-[#0b74e5] text-white">
-      {/* Top banner - Updated to match Tiki's pink/red gradient banner */}
-      <div className="hidden md:block  text-center py-2 text-sm">
-        Freeship đơn từ 0đ - Thực phẩm tươi ngon giao nhanh 2h, giảm nhiều hơn
-        cùng{" "}
+    <header className={`sticky top-0 z-50 bg-gradient-to-r from-[#1ba8ff] to-[#0b74e5] text-white shadow-md transition-all duration-300 ${isScrolled ? 'shadow-lg' : ''}`}>
+      {/* Top banner - Hidden when scrolled */}
+      <div className={`hidden md:block text-center text-sm transition-all duration-300 overflow-hidden ${isScrolled ? 'max-h-0 py-0' : 'max-h-20 py-2'}`}>
+        Freeship đơn từ 500K - Vật liệu xây dựng chất lượng, giá tốt, giảm nhiều hơn cùng{" "}
         <span className="font-bold text-yellow-300 underline cursor-pointer">
-          FREESHIP XTRA
+          ƯU ĐÃI SỐC
         </span>
       </div>
 
       {/* Main header */}
       <div className="bg-gradient-to-r from-[#1ba8ff] to-[#0b74e5] border-b shadow-sm">
-        <div className="max-w-[1240px] mx-auto px-4 py-3">
+        <div className={`max-w-[1240px] mx-auto px-4 transition-all duration-300 ${isScrolled ? 'py-2' : 'py-3'}`}>
           <div className="flex items-start justify-between  gap-2 md:gap-6">
             {/* Mobile menu button */}
             <button
@@ -84,48 +97,54 @@ export function Header() {
             </button>
 
             <Link href="/" className="flex-shrink-0">
-              <div className="flex items-center gap-2">
-                <Image
-                  src="/logo.png"
-                  alt="Frozen Food Logo"
-                  width={48}
-                  height={48}
-                  className="w-44 h-auto object-contain"
-                />
+              <div className="flex items-center gap-2 hover:opacity-90 transition-opacity">
+                <div className={`bg-white rounded-lg shadow-sm transition-all duration-300 ${isScrolled ? 'p-1' : 'p-1.5'}`}>
+                  <Image
+                    src="/logo-MeU.png"
+                    alt="MeU Building Materials Logo"
+                    width={32}
+                    height={32}
+                    className={`object-contain transition-all duration-300 ${isScrolled ? 'w-6 h-6' : 'w-8 h-8'}`}
+                  />
+                </div>
+                <div className={`flex flex-col transition-all duration-300 ${isScrolled ? 'hidden md:flex' : 'flex'}`}>
+                  <span className={`font-bold leading-tight transition-all duration-300 ${isScrolled ? 'text-base md:text-lg' : 'text-lg md:text-xl'}`}>MeU Materials</span>
+                  <span className={`font-medium text-blue-100 leading-tight transition-all duration-300 ${isScrolled ? 'text-[9px] md:text-[10px]' : 'text-[10px] md:text-xs'}`}>Vật Liệu Xây Dựng</span>
+                </div>
               </div>
             </Link>
 
             {/* Search - Updated styling to match Tiki */}
             <div className="flex-1 max-w-[680px] text-white">
-              <div className="relative flex items-center border-2 border-[#0b74e5] rounded-lg overflow-hidden bg-white hover:shadow-md transition-shadow">
+              <div className={`relative flex items-center border-2 border-[#0b74e5] rounded-lg overflow-hidden bg-white hover:shadow-md transition-all duration-300 ${isScrolled ? 'h-8 md:h-9' : 'h-9 md:h-10'}`}>
                 <div className="flex items-center pl-2 md:pl-3">
-                  <Search className="h-4 w-4 md:h-5 md:w-5 text-gray-500" />
+                  <Search className={`text-gray-500 transition-all duration-300 ${isScrolled ? 'h-3.5 w-3.5 md:h-4 md:w-4' : 'h-4 w-4 md:h-5 md:w-5'}`} />
                 </div>
                 <Input
-                  placeholder="Tìm thực phẩm..."
+                  placeholder="Tìm vật liệu, ..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  className="border-0 focus-visible:ring-0 h-9 md:h-10 pl-2 text-sm text-gray-900 placeholder:text-gray-500"
+                  className={`border-0 focus-visible:ring-0 pl-2 text-sm text-gray-900 placeholder:text-gray-500 transition-all duration-300 ${isScrolled ? 'h-8 md:h-9' : 'h-9 md:h-10'}`}
                 />
                 <Button
                   variant="ghost"
                   onClick={handleSearch}
-                  className="hidden md:flex h-10 px-4 text-white bg-[#0b74e5] font-medium hover:text-white cursor-pointer hover:bg-[#0a68ce] rounded-none"
+                  className={`hidden md:flex px-4 text-white bg-[#0b74e5] font-medium hover:text-white cursor-pointer hover:bg-[#0a68ce] rounded-none transition-all duration-300 ${isScrolled ? 'h-9' : 'h-10'}`}
                 >
                   Tìm kiếm
                 </Button>
               </div>
 
-              {/* Nav links - hidden on mobile */}
-              <div className="hidden lg:flex items-center gap-4 mt-2 text-sm text-white">
+              {/* Nav links - hidden on mobile and when scrolled */}
+              <div className={`hidden lg:flex items-center gap-4 text-sm text-white transition-all duration-300 overflow-hidden ${isScrolled ? 'max-h-0 mt-0' : 'max-h-20 mt-2'}`}>
                 {navLinks.map((link) => (
                   <Link
-                    key={link}
-                    href="#"
+                    key={link.slug}
+                    href={`/category/${link.slug}`}
                     className="hover:text-yellow-300 transition-colors capitalize"
                   >
-                    {link}
+                    {link.label}
                   </Link>
                 ))}
               </div>
@@ -190,12 +209,12 @@ export function Header() {
           <nav className="px-4 py-2">
             {navLinks.map((link) => (
               <Link
-                key={link}
-                href="#"
+                key={link.slug}
+                href={`/category/${link.slug}`}
                 className="block py-3 text-sm text-gray-700 hover:text-[#0b74e5] border-b capitalize"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                {link}
+                {link.label}
               </Link>
             ))}
           </nav>

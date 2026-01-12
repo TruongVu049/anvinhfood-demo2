@@ -7,15 +7,15 @@ import "./globals.css";
 const _inter = Inter({ subsets: ["latin", "vietnamese"] });
 
 export const metadata: Metadata = {
-  title: "CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ AN VĨNH",
+  title: "Cửa Hàng Vật Liệu Xây Dựng An Vĩnh",
   description:
-    "CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ AN VĨNH - Chuyên cung cấp thực phẩm đông lạnh cao cấp: Hải sản tươi sống, thịt nhập khẩu, combo tiết kiệm. Giao hàng siêu tốc 2h, đảm bảo chất lượng.",
+    "Chuyên cung cấp vật liệu xây dựng chất lượng cao: Xi măng, gạch, ngói, sơn, thiết bị điện, công cụ xây dựng. Giá tốt nhất thị trường, giao hàng nhanh.",
   generator: "v0.app",
   icons: {
     icon: [
-      { url: "/favicon.png" },
-      { url: "/favicon.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon.png", sizes: "32x32", type: "image/png" },
+      { url: "/logo-MeU.png" },
+      { url: "/logo-MeU.png", sizes: "16x16", type: "image/png" },
+      { url: "/logo-MeU.png", sizes: "32x32", type: "image/png" },
     ],
     apple: [{ url: "/apple-icon.png" }],
     other: [

@@ -25,7 +25,7 @@ export function TopDeals() {
         <div className="flex items-center gap-2">
           <ThumbsUp className="h-4 w-4 md:h-5 md:w-5 text-yellow-500 fill-yellow-500" />
           <h2 className="text-sm md:text-base font-bold text-[#ff424e]">
-            TOP DEAL • SIÊU RẺ
+            DEAL SỐC HÔM NAY • GIẢM SÂU
           </h2>
         </div>
         <Link

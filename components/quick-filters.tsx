@@ -5,19 +5,19 @@ import { useState } from "react";
 const quickFilters = [
   {
     id: "now",
-    label: "NOW",
-    sublabel: "Giao siêu tốc 2H",
+    label: "GIAO NHANH",
+    sublabel: "Trong ngày",
     color: "bg-green-100 text-green-700 border-green-300",
   },
   {
     id: "topdeal",
-    label: "TOP DEAL",
-    sublabel: "Siêu rẻ",
+    label: "DEAL SỐC",
+    sublabel: "Giảm sâu",
     color: "bg-orange-100 text-orange-700 border-orange-300",
   },
   {
     id: "freeship",
-    label: "FREESHIP XTRA",
+    label: "FREESHIP",
     sublabel: "",
     color: "bg-green-100 text-green-700 border-green-300",
   },

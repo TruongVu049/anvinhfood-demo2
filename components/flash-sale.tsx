@@ -35,7 +35,7 @@ export function FlashSale() {
       <div className="bg-gradient-to-r from-red-500 to-orange-500 rounded-xl p-4 text-white">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-4">
-            <h2 className="text-xl font-bold flex items-center gap-2">⚡ Flash Sale</h2>
+            <h2 className="text-xl font-bold flex items-center gap-2">⚡ Flash Sale Vật Liệu XD</h2>
             <div className="flex items-center gap-1">
               <span className="bg-white text-red-500 px-2 py-1 rounded font-bold text-lg">
                 {String(timeLeft.hours).padStart(2, "0")}

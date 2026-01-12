@@ -35,7 +35,7 @@ export function ProductCard({
   return (
     <Link
       href={`/product/${product.slug}`}
-      className="group bg-white rounded-lg overflow-hidden border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col"
+      className="group bg-white rounded-lg overflow-hidden border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col hover-lift"
     >
       {/* Image container */}
       <div className="relative aspect-square overflow-hidden bg-white p-2">
@@ -122,7 +122,7 @@ export function ProductCard({
               >
                 NOW
               </span>
-              <span className="text-gray-500">Giao siêu tốc 2h</span>
+              <span className="text-gray-500">Giao trong ngày</span>
             </>
           ) : (
             <span className="text-gray-500">{product.deliveryTime}</span>

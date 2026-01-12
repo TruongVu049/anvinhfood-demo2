@@ -9,19 +9,19 @@ export function Footer() {
             <h3 className="font-bold mb-4">Hỗ trợ khách hàng</h3>
             <ul className="space-y-2 text-sm text-gray-600">
               <li>
-                <Link href="#">Câu hỏi thường gặp</Link>
+                <Link href="#">Cách đặt hàng</Link>
               </li>
               <li>
-                <Link href="#">Gửi yêu cầu hỗ trợ</Link>
-              </li>
-              <li>
-                <Link href="#">Hướng dẫn đặt hàng</Link>
-              </li>
-              <li>
-                <Link href="#">Phương thức vận chuyển</Link>
+                <Link href="#">Chính sách vận chuyển</Link>
               </li>
               <li>
                 <Link href="#">Chính sách đổi trả</Link>
+              </li>
+              <li>
+                <Link href="#">Hướng dẫn thanh toán</Link>
+              </li>
+              <li>
+                <Link href="#">Câu hỏi thường gặp</Link>
               </li>
             </ul>
           </div>
@@ -30,27 +30,27 @@ export function Footer() {
             <h3 className="font-bold mb-4">Về chúng tôi</h3>
             <ul className="space-y-2 text-sm text-gray-600">
               <li>
-                <Link href="#">Giới thiệu</Link>
+                <Link href="#">Giới thiệu công ty</Link>
+              </li>
+              <li>
+                <Link href="#">Hệ thống cửa hàng</Link>
+              </li>
+              <li>
+                <Link href="#">Liên hệ hợp tác</Link>
               </li>
               <li>
                 <Link href="#">Tuyển dụng</Link>
               </li>
-              <li>
-                <Link href="#">Chính sách bảo mật</Link>
-              </li>
-              <li>
-                <Link href="#">Điều khoản sử dụng</Link>
-              </li>
             </ul>
           </div>
           <div>
-            <h3 className="font-bold mb-4">Hợp tác và liên kết</h3>
+            <h3 className="font-bold mb-4">Danh mục nổi bật</h3>
             <ul className="space-y-2 text-sm text-gray-600">
               <li>
-                <Link href="#">Quy chế hoạt động</Link>
+                <Link href="#">Xi măng & Vữa</Link>
               </li>
               <li>
-                <Link href="#">Bán hàng cùng chúng tôi</Link>
+                <Link href="#">Gạch xây & Ốp lát</Link>
               </li>
             </ul>
           </div>
@@ -70,7 +70,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-8 pt-8 border-t text-center text-sm text-gray-600">
-          <p>© 2024 AnVinhFood. All rights reserved.</p>
+          <p>© 2024 An Vĩnh Building Materials. All rights reserved.</p>
         </div>
       </div>
     </footer>
